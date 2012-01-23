@@ -1,0 +1,74 @@
+body {
+	color: #aaaaaa;
+	font-family: "Arial", Arial, Sans-serif;
+	font-size: xx-small;
+	background-color: #993399;
+}
+
+.login {
+	display: block;
+	clear: both;
+	width: 350px;
+}
+
+.login li {
+	list-style-image: none;
+	list-style-type: none;
+	margin: 10px;
+}
+
+.scroller {
+	display: block;
+	float: right;
+	height: 100%;
+	width: 5%;
+}
+
+.users {
+	display: block;
+	float: left;
+	width: 80%;
+}
+
+.user {
+	border:1px solid;
+	border-radius:10px;
+	-moz-border-radius:25px;
+	border-color: #aaaaaa;
+	padding: 5px;
+	width: 250px;
+}
+
+.user:hover {
+	font-size: 2em;
+	width: 325px;
+	height: 75px;
+}
+
+.user:hover .password {
+	visibility: visible;
+}
+
+.user_name {
+	display: block;
+	clear: both;
+}
+
+.password {
+	display: block;
+	clear: both;
+	visibility: hidden;
+}
+
+#password_input {
+	display: block;
+	float: left;
+	font-size: 1.5em;
+}
+
+.password img {
+	display: block;
+	float: right;
+	height: 30px;
+	margin-top: 5px;
+}
