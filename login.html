@@ -62,6 +62,11 @@
 					}
 				}
 				$(".password_input").mousedown(function(e) { e.stopPropagation(); });
+				$(".password_input").keypress(function(e) {
+					if ( event.which == 13 ) {
+						alert("I'm going to log you in now! " + this.value);
+					}
+				});
 				container.mousedown(function(e) {
 					if (e.currentTarget === this) {
 						e.preventDefault();
