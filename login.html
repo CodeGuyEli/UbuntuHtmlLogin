@@ -5,64 +5,83 @@
 	<body>
 		<div class="login">
 			<div class="scroller">
-				<ul>
-					<li>a</li><li>b</li><li>c</li><li>d</li><li>e</li><li>f</li><li>g</li>
-					<li>h</li><li>i</li><li>j</li><li>k</li><li>l</li><li>m</li><li>n</li>
-					<li>o</li><li>p</li><li>q</li><li>r</li><li>s</li><li>t</li><li>u</li>
-					<li>v</li><li>w</li><li>x</li><li>y</li><li>z</li><li>#</li>
-				</ul>
+				<table id="indexer"></table>
 			</div>
-			<div class="users">
-				<ul>
-					<li>
-						<div class="user">
-							<form>
-								<div class="user_name">Rich Dammkoehler</div>
-								<div class="password">
-									<input id="password_input" type="password"/>
-									<a href="#"><img src="images/login.jpg"/></a>
-								</div>
-							</form>
-						</div>
-					</li>
-					<li>
-						<div class="user">
-							<form>
-								<div class="user_name">Dave Mosher</div>
-								<div class="password">
-									<input id="password_input" type="password"/>
-									<a href="#"><img src="images/login.jpg"/></a>
-								</div>
-							</form>
-						</div>
-					</li>
-					<li>
-						<div class="user">
-							<form>
-								<div class="user_name">Jeff Penn</div>
-								<div class="password">
-									<input id="password_input" type="password"/>
-									<a href="#"><img src="images/login.jpg"/></a>
-								</div>
-							</form>
-						</div>
-					</li>
-					<li>
-						<div class="user">
-							<form>
-								<div class="user_name">Magnus Stahre</div>
-								<div class="password">
-									<input id="password_input" type="password"/>
-									<a href="#"><img src="images/login.jpg"/></a>
-								</div>
-							</form>
-						</div>
-					</li>
-				</ul>
+			<div id="container">
+				<div id="page" class="scrollable vertical"></div>
 			</div>
 		</div>
-		<script type="text/javascript" src="scrollability.min.js"></script>
+		<script type="text/javascript" src="script/jquery.min.js"></script>
+		<script type="text/javascript" src="script/scrollability.min.js"></script>
 		<script language="javascript">
+			var names = [
+				"Amy Alberts",
+				"Brian Borsa",
+				"Charlie Chan",
+				"Rich Dammkoehler",
+				"Running Bear Elkhart",
+				"Joshua Frank",
+				"Nicole Gregorsen",
+				"Joe Hightower",
+				"Bold Icarus",
+				"Rick James",
+				"Adrian Klinger",
+				"Bruce Lee",
+				"Dave Mosher",
+				"Chuck Norris",
+				"Clara Obert",
+				"Jeff Penn",
+				"John Quinn",
+				"Johnny Rotten",
+				"Magnus Stahre",
+				"Nik Tarrini",
+				"Helga Uglamtiz",
+				"Matt Van Vleet",
+				"Matt Weintzile",
+				"Professor X",
+				"Yuri Yorgensen",
+				"Zazoo 'Pettels' Zingerwitzch",
+			]; //should come from server
+			
+			$(function() {
+				var container = $("#container");
+				var page = $("#page");
+				for(var i = 0; i < names.length; ++i) {
+					//user underscore template here
+					var item = document.createElement('div');
+					item.className = 'user';
+					item.innerHTML = 	"<li><form><div class='user_name'>" +
+										names[i] +
+										"</div>"+
+										"<div class='password'>"+
+										"<input class='password_input' type='password'/>"
+										"</div></form></li>";
+					page.append(item);
+					if (page.offsetHeight > container.offsetHeight*7) {
+						break;
+					}
+				}
+				$(".password_input").mousedown(function(e) { e.stopPropagation(); });
+				container.mousedown(function(e) {
+					if (e.currentTarget === this) {
+						e.preventDefault();
+					}
+				});
+				var indexer = $("#indexer");
+				for(var i = 0; i < 26; i++) {
+					var alphaChar = String.fromCharCode(i+97);
+					var index_link = document.createElement("tr");
+					index_link.className = 'indexer';
+					index_link.innerHTML = "<td><a href='#' class='dark_link'>" + alphaChar + "</a></td>";
+					indexer.append(index_link);
+				}
+				$(".user").click(function(e) {
+					$(".scroller").hide();
+				});
+				$(".user").mouseleave(function(e) {
+					$(".scroller").show();
+				});
+			});
 		</script>
 	</body>
 </html>

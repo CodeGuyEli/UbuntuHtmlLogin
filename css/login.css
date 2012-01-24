@@ -5,23 +5,64 @@ body {
 	background-color: #993399;
 }
 
-.login {
+.scroller {
 	display: block;
-	clear: both;
-	width: 350px;
+	float: right;
+	background-color: #660066;
+	border:1px solid;
+	border-radius:10px;
+	-moz-border-radius:25px;
+	border-color: #aaaaaa;
+	height: 100%;
 }
 
-.login li {
+#indexer {
+	width: 40px;
+	height: 100%;
+}
+
+.indexer tr {
+	margin-top: 10px;
+	margin-bottom: 10px;	
+}
+
+.indexer td {
+	text-align: center;
+	list-style-image: none;
+	list-style-type: none;
+}
+
+.dark_link {
+	color: #aaaaaa;
+	text-decoration: none;
+	cursor: auto;
+}
+
+.indexer:hover {
+	font-size: 1.5em;
+}
+
+#container {
+    position: absolute;
+    left: 0;
+    top: 44px;
+    bottom: 24px;
+    width: 300px;
+    overflow: hidden;
+/*    overflow: scroll;
+    -webkit-overflow-scrolling: touch;*/
+}
+
+.container li {
 	list-style-image: none;
 	list-style-type: none;
 	margin: 10px;
 }
 
-.scroller {
+.login {
 	display: block;
-	float: right;
-	height: 100%;
-	width: 5%;
+	clear: both;
+	width: 350px;
 }
 
 .users {
@@ -41,12 +82,16 @@ body {
 
 .user:hover {
 	font-size: 2em;
-	width: 325px;
+	width: 275px;
 	height: 75px;
 }
 
 .user:hover .password {
 	visibility: visible;
+}
+
+.user:last-child {
+    border-bottom: 1px solid #ccc;
 }
 
 .user_name {
@@ -60,10 +105,10 @@ body {
 	visibility: hidden;
 }
 
-#password_input {
+.password_input {
 	display: block;
 	float: left;
-	font-size: 1.5em;
+	font-size: 1.4em;
 }
 
 .password img {
